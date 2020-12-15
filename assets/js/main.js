@@ -20,22 +20,20 @@ let sliderMain = new Vue({
   },
   methods : {
     next(){
-        if(this.indexPosition == this.immagini.length - 1){
-            this.indexPosition = 0;
-        } else{
-            this.indexPosition++;
-        }
+      this.indexPosition++;
+      if(this.indexPosition > this.immagini.length - 1){
+          this.indexPosition = 0;
+      }
     },
     prev(){
-        if(this.indexPosition == 0){
-            this.indexPosition = this.immagini.length - 1;
-        }else{
-            this.indexPosition--;
-        }
+      this.indexPosition--;
+      if(this.indexPosition < 0){
+          this.indexPosition = this.immagini.length - 1;
+      }
     },
     autoPlay() {
         setInterval(() => {
-            this.prev();
+            this.next();
         }, 3000);
     },
     keyDown(){
