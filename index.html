@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- fontawesome icon -->
+  <script src="https://kit.fontawesome.com/30fc0982d8.js"></script>
+  <script type="text/javascript" src="assets/js/fontawesome/font.js"></script>
+
+</head>
+<body>
+  <header id="header_section">
+    <h1>Slider VueJs </h1>
+  </header>
+  <!-- /#header_section -->
+
+  <main id="slider_main" class="container">
+      <div class="slider_wrap">
+        <div  class="prev">
+          <a href="#" @click="prev()">
+            <i class="fas fa-angle-left"></i>
+          </a>
+        </div>
+        <div class="images">
+          <img :src="immagini[indexPosition]" alt="">
+        </div>
+        <div class="next">
+          <a href="#" @click="next()">
+            <i class="fas fa-angle-right"></i>
+          </a>
+        </div>
+      </div>
+      <nav class="nav">
+        <template v-for="(el, index) in immagini">
+          <a href="#" :class="{active: (index == indexPosition)}" @click="indexPosition = index">
+            <i  class="fas fa-circle" ></i>
+          </a>
+        </template>
+      </nav>
+  </main>
+  <!-- /#slider_main -->
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
